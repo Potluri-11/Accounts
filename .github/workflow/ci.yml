@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-central-ci:
-    uses:
-YOUR_GITHUB_USERNAME/ central-ci/ .github/ workflows/ secure-ci.yml@main
+    uses: Potluri-11/central-ci/.github/workflows/secure-ci.yml@main
+    
     with:
       service_name: Accounts
