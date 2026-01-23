@@ -4,6 +4,10 @@ on:
     branches:
       - main
   workflow_dispatch: 
+permissions: 
+  contents: read
+  packages: write
+  id-token: write
 jobs:
   pipeline:
     uses: Potluri-11/central-ci/.github/workflows/ci-reusable workflow.yml@main
