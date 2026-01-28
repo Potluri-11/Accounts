@@ -17,5 +17,5 @@ jobs:
       service-name: accounts
       unit-test:  gradle test
       integration-test:  gradle IntegrationTest
-      code-coverage: gradle jacocoTestReport
+      code-coverage: gradle jacocoTestReports
       image-ref: ghcr.io/potluri-11/accounts:1.0.0
