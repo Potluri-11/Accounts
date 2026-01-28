@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
 group = 'com.example.accounts'
@@ -13,14 +14,6 @@ java {
 
 repositories {
     mavenCentral()
-}
-
-dependencies {
-    // Unit test dependency
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
-
-    // Integration test dependency (reuse JUnit)
-    integrationTestImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
 }
 
 /* ---------- Integration Test Configuration ---------- */
@@ -39,6 +32,15 @@ configurations {
     integrationTestRuntimeOnly.extendsFrom testRuntimeOnly
 }
 
+/* ---------- Dependencies (AFTER configs) ---------- */
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    integrationTestImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+}
+
+/* ---------- Integration Test Task ---------- */
+
 task integrationTest(type: Test) {
     description = 'Runs integration tests'
     group = 'verification'
@@ -55,4 +57,14 @@ test {
 
 integrationTest {
     useJUnitPlatform()
+}
+
+/* ---------- Code Coverage ---------- */
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+    }
 }
