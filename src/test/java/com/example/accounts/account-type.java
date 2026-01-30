@@ -3,7 +3,7 @@ package com.example.accounts;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class AccountTypeServiceTest {
+class Account-typeTest {
 
     @Test
     void premiumAccount() {
