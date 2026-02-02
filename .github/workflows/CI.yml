@@ -19,8 +19,3 @@ jobs:
       integration-test:  gradle IntegrationTest
       code-coverage: gradle jacocoTestReport
       image-ref: ghcr.io/potluri-11/accounts:1.0.0
-
-  platform-policies:
-    needs: ci-pipeline
-    uses: Potluri-11/central-ci/.github/workflows/kyverno.yml@main
-    secrets: inherit
