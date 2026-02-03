@@ -1,9 +1,26 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: signed-image-test
-spec:
-  containers:
-  - name: app
-    image: ghcr.io/potluri-11/accounts:1.0.0
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: signed-image-test
+# spec:
+#   containers:
+#   - name: app
+#     image: ghcr.io/potluri-11/accounts:1.0.0
 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: signed-image-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: accounts
+  template:
+    metadata:
+      labels:
+        app: accounts
+    spec:
+      containers:
+        - name: accounts
+          image: ghcr.io/potluri-11/accounts:1.0.0
