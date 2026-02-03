@@ -10,6 +10,8 @@ spec:
       resources:
         kinds:
         - Pod
+        - Deployment
+        # - Job
     verifyImages:
     - imageReferences:
       - "ghcr.io/potluri-11/*"
